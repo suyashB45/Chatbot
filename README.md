@@ -32,7 +32,7 @@ This project showcases a multi-PDF chatbot built using [LangChain](https://langc
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/yourusername/multi-pdf-chatbot.git
+    https://github.com/suyashB45/Chatbot
     cd multi-pdf-chatbot
     ```
 
