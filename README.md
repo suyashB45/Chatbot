@@ -1,93 +1,91 @@
-# Multi-PDF Chatbot using LangChain and Gemmini AI
+# Chat with PDF using Gemini 💁  
 
-This project showcases a multi-PDF chatbot built using [LangChain](https://langchain.com/) and the Gemmini AI API. The chatbot leverages LangChain’s capabilities to parse multiple PDF documents and answer questions based on their content, making it ideal for handling extensive documentation or multi-file references.
+This project enables users to interact with PDF documents through a conversational interface powered by Google Generative AI and FAISS vector stores. By uploading PDF files, users can ask questions and receive detailed responses based on the document content.  
 
-## Table of Contents
-- [Features](#features)
-- [Setup and Installation](#setup-and-installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Key Management](#api-key-management)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+## Features  
 
----
+- **PDF Upload and Processing**: Extract text from uploaded PDF files.
+- **Text Chunking**: Split large text into manageable chunks for better processing.
+- **Embedding and Indexing**: Use Google Generative AI embeddings to create a searchable vector store.
+- **Conversational Chain**: Answer user queries using Google Gemini Pro with custom prompts.
+- **Streamlit Interface**: User-friendly web interface for uploading files and interacting with the model.
 
-## Features
-- **Multi-PDF Parsing**: Processes multiple PDFs at once.
-- **Question-Answering**: Answers queries based on parsed PDF content.
-- **Contextual Memory**: Remembers conversation context for a better user experience.
-- **Gemmini AI Integration**: Uses the Gemmini API for language model capabilities.
-  
-## Setup and Installation
+## Demo  
 
-### Prerequisites
-- Python 3.8 or higher
-- Gemmini AI API Key (available on [Gemmini AI](https://gemmini.com))
-- [LangChain](https://python.langchain.com/en/latest/) library
-- PDF processing libraries (e.g., `PyMuPDF`)
+![LangChain Logo](https://media.licdn.com/dms/image/D4D12AQHR6_vWjjNyPQ/article-cover_image-shrink_720_1280/0/1684226004055?e=2147483647&v=beta&t=NqJ6P94aqLjACBX7FZzLsotcUlR35WJgq4FQn96AMN8)  
+![Google Gemini AI](https://s.yimg.com/ny/api/res/1.2/FWWVOW6s2MUFV_yLq9E36g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://s.yimg.com/os/creatr-uploaded-images/2023-12/5f7be670-943f-11ee-af7f-41b7060d20ba)  
 
-### Installation
+Check out this video demonstration of the app in action:  
 
-1. Clone this repository:
-    ```bash
-    https://github.com/suyashB45/Chatbot
-    cd multi-pdf-chatbot
-    ```
+[![Chat with PDF Demo](https://img.youtube.com/vi/PRnsPYJ8I2E/0.jpg)](https://youtu.be/PRnsPYJ8I2E?si=qXK64rFUNh4jUY2g)  
 
-2. Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+## Technologies Used  
 
-3. Install additional tools for PDF processing if needed:
-    ```bash
-    pip install pymupdf
-    ```
+- **Python**  
+- **Streamlit**: For building the web interface.  
+- **PyPDF2**: For reading text from PDF files.  
+- **LangChain**: For text splitting and managing conversational AI chains.  
+- **Google Generative AI (Gemini)**: For embeddings and conversational responses.  
+- **FAISS**: For efficient similarity search on vectorized text.  
+- **dotenv**: For managing API keys securely.  
 
-## Configuration
+## How It Works  
 
-1. **API Key**: Create a `.env` file in the root directory and add your Gemmini AI API key:
-    ```plaintext
-    GEMMINI_API_KEY=your_gemmini_api_key
-    ```
+1. **Upload PDF Files**: Use the sidebar to upload one or more PDF documents.  
+2. **Process PDF Files**: Extract and split text into smaller chunks for processing.  
+3. **Generate Embeddings**: Create vector embeddings using Google Generative AI.  
+4. **Ask Questions**: Input questions based on the uploaded content to receive detailed answers.  
 
-2. **LangChain Configuration**: Adjust LangChain settings in `config.py` as per your model and memory requirements.
+## Setup  
 
-3. **PDF Storage**: Place the PDF files to be parsed in the `pdf_files` directory or adjust the script to point to your preferred folder.
+1. Clone the repository:  
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```  
 
-## Usage
+2. Install dependencies:  
+   ```bash
+   pip install -r requirements.txt
+   ```  
 
-1. **Run the Chatbot**:
-    ```bash
-    python app.py
-    ```
+3. Add your Google API key to a `.env` file:  
+   ```env
+   GOOGLE_API_KEY=your_google_api_key
+   ```  
 
-2. **Interacting with the Chatbot**: Ask questions based on the PDF content. The chatbot will parse PDFs and respond based on the information extracted.
+4. Run the Streamlit app:  
+   ```bash
+   streamlit run app.py
+   ```  
 
-3. **Sample Query**:
-    - **User**: "What is the main topic of Document A?"
-    - **Bot**: "Document A primarily discusses..."
+## Usage  
 
-## API Key Management
+- Navigate to the app in your browser.  
+- Upload PDF files via the sidebar.  
+- Ask questions about the uploaded documents using the input field.  
 
-The API key for Gemmini AI should be kept secure. Avoid sharing or hardcoding it in files. Use environment variables to securely store your API key.
+## Notes  
 
-## Technologies Used
-- **LangChain**: Framework for building language model applications.
-- **Gemmini AI**: For natural language processing capabilities.
-- **PyMuPDF**: For efficient PDF parsing.
-- **Flask** (optional): For a web interface to access the chatbot.
-  
-## Contributing
+- Ensure that the Google API key has access to Google Generative AI services.  
+- If the FAISS index is not found, re-upload and process the PDF files.  
 
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature: `git checkout -b feature-name`.
-3. Commit your changes: `git commit -m "Added new feature"`.
-4. Push to the branch: `git push origin feature-name`.
-5. Submit a pull request.
+## Future Enhancements  
 
-## License
-This project is licensed under the MIT License.
+- Add support for additional file formats (e.g., Word, TXT).  
+- Implement multi-language support for PDFs.  
+- Optimize response time for large documents.  
+
+## License  
+
+This project is licensed under the MIT License.  
+
+## Acknowledgments  
+
+- [Streamlit](https://streamlit.io/)  
+- [LangChain](https://www.langchain.com/)  
+- [FAISS](https://github.com/facebookresearch/faiss)  
+- [Google Generative AI](https://ai.google/)  
+```  
+
+Let me know if you need further adjustments!
